@@ -12,6 +12,6 @@ import com.ryujm.spring.ex.database.domain.UsedGoods;
 public interface UsedGoodsRepository {
 
 	// used_goods 테이블 모든 행 조회
-	public List<UsedGoods> selectUsedGoodsList();
+	public List<UsedGoods> selectUsedGoodsList();	
 	
 }
