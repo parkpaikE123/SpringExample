@@ -2,8 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper>
-	<insert id="insertUser">
-	
+<mapper namespace="com.ryujm.spring.ex.mvc.repository.SellerRepository">
+	<insert id="insertSeller" parameterType="map">
+		INSERT INTO `seller`
+			(
+				`nickname`
+				, `temperature`
+				, `profileImage`
+			)
+		VALUE
+			(
+				#{nickname}
+				, #{temperature}
+				, #{profileImage}
+			)
+		
 	</insert>
 </mapper>
