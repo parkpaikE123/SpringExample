@@ -19,23 +19,37 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	// 사용자 정보를 전달 받고 저장하는 기술
-	@ResponseBody
+//	@ResponseBody
 //	@RequestMapping(path="/mvc/user/create", method=RequestMethod.POST)
 	@PostMapping("/create")
 	public String createUser(
 					@RequestParam("name") String name
-					,@RequestParam("birthday") String birthday
+					,@RequestParam("yyyymmdd") String birthday
 					,@RequestParam("email") String email
-					,@RequestParam("introduce") String introduce) {
+					,@RequestParam("introduce") String introduce
+					, Model model) {
 		
-		int count = userService.addUser(name, birthday, email, introduce);
-		return "추가 성공 : " + count;	
+//		int count = userService.addUser(name, birthday, email, introduce);
+		
+		User user = new User();
+		user.setName(name);
+		user.setYyyymmdd(birthday);
+		user.setEmail(email);
+		user.setIntroduce(introduce);
+		
+		userService.addUserByObject(user);
+		
+		model.addAttribute("user", user);
+		return"/mvc/userInfo";
+		
+//		return "추가 성공 : " + count;	
+//		return "redirect:/mvc/user/info";
 	}
 	@GetMapping("/input")
 	public String inputUser() {
 		return "/mvc/userInput";
-		
 	}
+	
 	@GetMapping("/info")
 	public String userInfo(Model model) {
 		// 가장 최근에 등록된 한 사용자 정보 얻어오기 
