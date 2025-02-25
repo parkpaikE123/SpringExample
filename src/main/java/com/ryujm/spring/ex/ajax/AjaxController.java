@@ -23,7 +23,6 @@ public class AjaxController {
 		int year = Integer.parseInt(birthday.substring(0, 4));
 		int age = 2025 - year ;
 		// {"name":"김인규","age":29}
-		
 		Map<String, Object> personMap = new HashMap<>();
 		personMap.put("name", name);
 		personMap.put("age",age);
@@ -31,6 +30,12 @@ public class AjaxController {
 		return personMap;
 		
 	}
+	@GetMapping("/ajax/ex01")
+	public String ex01() {
+		return "/ajax/ex01";
+	}
+	
+	
 	
 }
 

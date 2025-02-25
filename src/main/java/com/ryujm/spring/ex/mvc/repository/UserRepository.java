@@ -10,7 +10,7 @@ public interface UserRepository {
 
 	// 사용자 정보를 전달 받고 new_user 테이블 한행 삽입
 	public int insertUser(@Param("name") String name
-			,@Param("yyyymmdd") String birthday
+			,@Param("birthday") String birthday
 			,@Param("email") String email
 			,@Param("introduce") String introduce);
 
